@@ -1,0 +1,22 @@
+{
+  "name": "framewell",
+  "version": "1.0.0",
+  "description": "Your memories, your gallery",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd client && npm i --force && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vik782/Framewell.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vik782/Framewell/issues"
+  },
+  "homepage": "https://github.com/vik782/Framewell#readme"
+}

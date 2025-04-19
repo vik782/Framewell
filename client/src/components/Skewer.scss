@@ -1,0 +1,209 @@
+.skewer-component {
+    opacity: 1 !important;
+
+    .invisible {
+        display: none;
+    }
+
+    .visible {
+        display: flex;
+    }
+
+    .confirm-delete {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        width: 100vw;
+        height: 100vh;
+        background-color: #00000059;
+        align-items: center;
+        justify-content: center;
+
+        &, & * {
+            font-family: Monsterrat-bold;
+        }
+
+        .delete-message-container {
+            height: 12vh;
+            background-color: white;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+            border-radius: 15px;
+            width: 250px;
+            animation: gracious-appearance 400ms;
+            animation-fill-mode: forwards;
+
+            .message {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+
+                button {
+                    background-color: transparent;
+                    border: none;
+                    color: white;
+                    font-size: 20px;
+                    font-weight: bolder;
+                    transition: 200ms;
+                    cursor: pointer;
+                    width: 30px;
+                    height: 30px;
+                    position: relative;
+                    top: -5px;
+
+                    &:hover {
+                        rotate: 180deg;
+                        top: -2px;
+                    }
+                }
+            }
+
+            .button-choices {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                button {
+                    padding: 10px;
+                    border-radius: 7px;
+                    border: none;
+                    transition: 200ms;
+
+                    &:hover {
+                        scale: 1.1;
+                    }
+                }
+
+                .no {
+                    background-color: transparent;
+                    color: black;
+                    box-shadow: -3px -2px 5px transparent;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .yes {
+                    background-color: #96B3C2;
+                    text-shadow: none;
+                    color: white;
+
+                    * {
+                        letter-spacing: 0.06em;
+                    }
+
+                    &:hover {
+                        box-shadow: 0px 36px 14px rgba(0, 0, 0, 0.01), 0px 20px 12px rgba(0, 0, 0, 0.05), 0px 9px 9px rgba(0, 0, 0, 0.09), 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+                        background-color: var(--accent-color-darker);
+                        cursor:pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.skewer-button {
+    cursor: pointer;
+    float: right;
+    background: #838383;
+    border: none;
+    border-radius: 50px;
+    padding: 4px 4px 0px 4px;
+    text-align: center;
+    box-shadow: 0px 5px 5px rgb(0 0 0 / 37%), inset 0 0 2px rgb(0 0 0 / 22%);
+    position: relative;
+    z-index: 5;
+
+    svg {
+        font-size: 22px;
+        color: white;
+    }
+}
+
+.partial-view .skewer-dropdown {
+    right: 0;
+}
+
+@media only screen and (max-width: 722px) {
+    .skewer-dropdown {
+        right: 0;
+    }
+
+    tbody .table-body{
+        width: 100%;
+        display: flex;
+    }
+
+    #name-cell {
+        width: 15ch;
+        text-overflow: ellipsis;
+    }
+
+    .list-view-container .list-table .artefact-list {
+        table-layout: initial;
+    }
+}
+
+.skewer-dropdown {
+    margin-top: 33px;
+    position: absolute;
+    right: 0;
+    width: max-content;
+    z-index: 6;
+
+    .text-left {
+        background: #333333;
+        border-radius: 8px;
+        padding: 10px;
+        padding: 10px;
+        position: relative;
+        animation: gracious-appearance 400ms;
+        animation-fill-mode: forwards;
+        border: 1px solid hsla(198deg, 100%, 86%, 30%);
+
+        .skewer-dropdown-item {
+            padding: 10px;
+            transition: 400ms;
+
+            &:hover {
+                background-color: #444;
+                border-radius: 8px;
+            }
+
+            .link-line {
+                color: white;
+                width: 100%;
+                cursor: pointer;
+            }
+            .link-line:hover {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@keyframes gracious-appearance {
+    0% {
+        opacity: 0;
+        left: 3px;
+        top: 8px;
+        transform: scaleX(1.2);
+        box-shadow: -18px -9px 3px black;
+        filter: blur(9px);
+    }
+    100% {
+        opacity: 1;
+        left: 0px;
+        top: 0px;
+        transform: scaleX(1.0);
+        box-shadow: 6px 9px 9px #00000066;
+        filter: blur(0px);
+    }
+}

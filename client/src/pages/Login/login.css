@@ -1,0 +1,168 @@
+.login-page {
+  display: flex;
+  justify-content: space-between;
+}
+.login-page h1 {
+  font-family: Monsterrat-bold;
+  margin: 0;
+}
+.login-page h2 {
+  font-size: 16px;
+  font-weight: lighter;
+}
+.login-page h3 {
+  font-size: 12px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+.login-page a {
+  color: inherit;
+}
+.login-page .login-form {
+  background-color: white;
+  box-shadow: -6px 0 11px -9px black;
+  --margin-width: 71px;
+  padding-left: var(--margin-width);
+  padding-right: var(--margin-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 100vh;
+  width: 40vw;
+}
+.login-page .login-form .website-brand {
+  display: none;
+}
+.login-page form ul {
+  list-style: none;
+  line-height: 2.25;
+  padding: 0;
+  /* We need a way to make the form elements take the full
+   * width of the container */
+}
+.login-page form ul li > * {
+  width: 100%;
+}
+.login-page form ul .input-field {
+  display: flex;
+  margin-bottom: 25px;
+  position: relative;
+}
+.login-page form ul .input-field span {
+  flex-basis: 0;
+  height: 21px;
+  font-size: 21px;
+  margin-top: 2px;
+  display: flex;
+  cursor: pointer;
+}
+.login-page form ul .input-field span svg {
+  stroke: gray;
+  stroke-width: 0.6;
+}
+.login-page form ul label {
+  font-size: 14px;
+  font-family: Monsterrat-bold;
+  margin-left: 5px;
+  font-weight: lighter;
+}
+.login-page form ul label:after {
+  content: "*";
+  --light-red: #f97878;
+  color: var(--light-red);
+  font-size: 12px;
+  font-weight: lighter;
+}
+.login-page form ul .feedback {
+  text-align: start;
+  letter-spacing: -0.02em;
+  font-family: Monsterrat-bold;
+  font-size: 14.5px;
+  font-weight: lighter;
+  line-height: 1.2;
+}
+.login-page form input {
+  border: none;
+  outline: none;
+  margin-bottom: 5px;
+  padding-left: 8px;
+}
+.login-page form .login-initial {
+  border-bottom: 3px solid #808080;
+}
+.login-page form .login-invalid {
+  border-bottom: 3px solid red;
+  animation: 400ms shake;
+}
+.login-page form .login-valid {
+  border-bottom: 3px solid green;
+}
+.login-page form label {
+  font-weight: bold;
+}
+.login-page form button {
+  font-family: Monsterrat-bold;
+  font-size: 15px;
+  background-color: var(--accent-color);
+  color: white;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0px 6px 11px -9px black;
+  margin-top: 4vh;
+  transition: 250ms;
+}
+.login-page form button:hover {
+  background-color: var(--accent-color-darker);
+  box-shadow: 0px 6px 11px -6px black;
+}
+.login-page form button[disabled=""] {
+  cursor: not-allowed;
+  filter: saturate(0);
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    left: 0vw;
+  }
+  25% {
+    left: -1vw;
+  }
+  50% {
+    left: 1vw;
+  }
+}
+@media only screen and (max-width: 722px) {
+  .login-page .login-form {
+    width: 100vw;
+    justify-content: start;
+    padding-top: 6vh;
+  }
+  .login-page .login-form .website-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Monsterrat-bold;
+    font-size: 21px;
+    margin-bottom: 4vh;
+  }
+  .login-page .login-form .website-brand img {
+    width: 30vw;
+    background: linear-gradient(
+      90deg,
+      var(--accent-color-darker) 0%,
+      var(--accent-color) 100%
+    );
+    border-radius: 10px;
+    box-shadow: 0px 3px 5px hsla(0deg, 0%, 0%, 0.6);
+  }
+  .login-page .login-form .website-brand span {
+    margin-top: 1.75vh;
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=login.css.map */

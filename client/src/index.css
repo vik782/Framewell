@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Monsterrat";
+  src: url(./fonts/Montserrat-Regular.woff2) format("woff2");
+}
+@font-face {
+  font-family: "Monsterrat-bold";
+  src: url(./fonts/Montserrat-Bold.woff2) format("woff2");
+}
+:root {
+  --accent-color: hsl(198, 31%, 66%);
+  --accent-color-darker: hsl(198, 31%, 50%);
+  --accent-color-complement: hsl(15.8, 33.3%, 68.8%);
+}
+
+body {
+  margin: 0;
+  font-family: Monsterrat, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: hsl(198deg, 31%, 98%);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/*# sourceMappingURL=index.css.map */
