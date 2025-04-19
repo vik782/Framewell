@@ -28,9 +28,10 @@ import "./RecordPage.scss";
 /** {{initial: string, invalid: string, valid: string}} */
 const feedbackMessages = {
   initial: "",
+  general: "Something went wrong, please try again",
   invalid: "The artefact must have a valid name and a picture uploaded",
   tooBig:
-    "The image is too large (>10MB), please upload a smaller picture and try again",
+    "The image is too large (>4.5MB), please upload a smaller picture and try again",
   valid: "",
 };
 
@@ -107,8 +108,8 @@ function RecordForm() {
      */
     async function recordArtefact(e) {
       const sizeInKB = Number.parseInt(record.sizeImg.split(" ")[0]);
-      if (sizeInKB > 15 * 1024) {
-        // >15MB
+      if (sizeInKB > 4.5 * 1024) {
+        // >4 MB
         setFeedback(feedbackMessages.tooBig);
         setSubmitActive(true);
         setToggleLoad(false);
@@ -120,6 +121,9 @@ function RecordForm() {
           window.location.href = "/dashboard";
         })
         .catch((error) => {
+          setFeedback(feedbackMessages.general);
+          setSubmitActive(true);
+          setToggleLoad(false);
           console.log(error);
         });
     }
