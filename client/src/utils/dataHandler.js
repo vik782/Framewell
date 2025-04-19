@@ -11,12 +11,12 @@ const /** ?string */ token = cookies.get("TOKEN");
  * For dev-mode
  * ------------------------------------------------------------ */
 
-// const URL = process.env.REACT_APP_LOCAL_URL;
+const URL = process.env.REACT_APP_LOCAL_URL;
 
 /* ------------------------------------------------------------
  * For deployment-mode
  * ------------------------------------------------------------ */
-const URL = process.env.REACT_APP_DEPLOY_URL;
+// const URL = process.env.REACT_APP_DEPLOY_URL;
 
 /* ------------------------------------------------------------
  * At ${URL}/login

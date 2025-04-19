@@ -28,12 +28,12 @@ const { User, Artefact, Category, Associated } = require("../models/user");
  * For dev-mode
  * ------------------------------------------------------------ */
 
-// const URL = process.env.LOCAL_URL;
+const URL = process.env.LOCAL_URL;
 
 /* ------------------------------------------------------------
  * For deployment-mode
  * ------------------------------------------------------------ */
-const URL = process.env.DEPLOY_URL;
+// const URL = process.env.DEPLOY_URL;
 
 /**
  * MongoDB aggregate pipeline for the search index: "associated_index"
