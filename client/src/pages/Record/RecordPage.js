@@ -106,18 +106,20 @@ function RecordForm() {
      * @param e The javascript event
      */
     async function recordArtefact(e) {
+      const sizeInKB = Number.parseInt(record.sizeImg.split(" ")[0]);
+      if (sizeInKB > 10 * 1024) {
+        // >10MB
+        setFeedback(feedbackMessages.tooBig);
+        setSubmitActive(true);
+        setToggleLoad(false);
+        return;
+      }
       // set configurations
       postArtefact(record)
         .then((result) => {
           window.location.href = "/dashboard";
         })
         .catch((error) => {
-          if (error.response.status === 413) {
-            setFeedback(feedbackMessages.tooBig);
-            setSubmitActive(true);
-            setToggleLoad(false);
-            return;
-          }
           console.log(error);
         });
     }
