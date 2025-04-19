@@ -90,7 +90,7 @@ Framewell can be also be used and developed locally! This means instead of uploa
 - Under the `client` directory, create a `.env` file with the following constant:
   - REACT_APP_LOCAL_URL = "http://localhost:5100/api"
 
-- Headover to `/client/src/utils/dataHandler.js` and use `const URL = process.env.REACT_APP_DEPLOY_URL;`
+- Headover to `/client/src/utils/dataHandler.js` and use `const URL = process.env.REACT_APP_LOCAL_URL;`
 - Headover to `/server/controllers/userController.js` and use `const URL = process.env.LOCAL_URL;`
 - In `userController.js`file, use `registerArtefact()` and `deleteArtefact()` functions that are commented for local storage
 - Under `client` root, run the following command to start front-end
