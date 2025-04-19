@@ -445,11 +445,10 @@ const registerArtefact = async (req, res) => {
     req.body.record.artefactImg.split(",")[1],
     "base64"
   );
-  const { pathImg } = await put(req.body.record.nameImg, imageBuffer, {
+  const { url } = await put(req.body.record.nameImg, imageBuffer, {
     access: "public",
     addRandomSuffix: true,
   });
-
   const userId = new mongoose.Types.ObjectId(req.user.userId);
   // Create a new artefact
   const artefact = new Artefact({
@@ -460,7 +459,7 @@ const registerArtefact = async (req, res) => {
     associated: null,
     category: null,
     location: req.body.record.location,
-    "artefactImg.imgURL": pathImg,
+    "artefactImg.imgURL": url,
     "artefactImg.imgName": req.body.record.nameImg,
     "artefactImg.imgType": req.body.record.typeImg,
     "artefactImg.imgSize": req.body.record.sizeImg,

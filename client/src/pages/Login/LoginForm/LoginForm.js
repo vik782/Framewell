@@ -61,7 +61,6 @@ export default function LoginForm() {
    * @param e The javascript event
    */
   async function handleLogin(e) {
-    console.log(username, password);
     // prevent the form from refreshing the whole page
     e.preventDefault();
 

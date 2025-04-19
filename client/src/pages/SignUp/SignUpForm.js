@@ -60,7 +60,6 @@ export default function SignUpForm() {
    * @param e The javascript event
    */
   async function handleSignUp(e) {
-    console.log(username, password);
     // prevent the form from refreshing the whole page
     e.preventDefault();
 
