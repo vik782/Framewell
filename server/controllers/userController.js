@@ -14,7 +14,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
 const mongoose = require("mongoose");
-const { put } = require("@vercel/blob"); /* Vercel Blob */
+const { put, del } = require("@vercel/blob"); /* Vercel Blob */
 const LIMIT = 16; // record limit per page
 
 /* Imports of mongoose models */
@@ -595,11 +595,14 @@ const editArtefact = async (req, res) => {
   }
 };
 
-/**
+/*
+/* ------------------------------------------------------------
+ * For local storage
  * Deletes a currently-existing artefact
  * @param {Request} req
  * @param {Response} res
- */
+ * // (add / after * to uncomment the code below)
+
 // delete artefact function for route: '/delete-artefact/:id'
 const deleteArtefact = async (req, res) => {
   const artefact_id = req.params.id;
@@ -630,7 +633,39 @@ const deleteArtefact = async (req, res) => {
         error,
       });
     });
+}
+*/
+
+/* 
+/* ------------------------------------------------------------
+ * For online storage (Vercel Blob)
+ * Deletes a currently-existing artefact
+ * @param {Request} req
+ * @param {Response} res
+ */ // (add / after * to uncomment the code below)
+
+// delete artefact function for route: '/delete-artefact/:id'
+const deleteArtefact = async (req, res) => {
+  const artefact_id = req.params.id;
+  const artefact_record = await Artefact.findOne({ _id: artefact_id });
+
+  Artefact.deleteOne({ _id: artefact_id })
+    .then(async (artefact) => {
+      await del(artefact_record.artefactImg.imgURL);
+
+      return res.status(200).send({
+        message: "Deleted artefact successfully",
+        artefact,
+      });
+    })
+    .catch((error) => {
+      return res.status(500).send({
+        message: "Internal Server Error, on deleteArtefact()",
+        error,
+      });
+    });
 };
+// (remove to uncomment the code above)
 
 /**
  * Sends all artefacts in the database to be rendered on the dashboard.
