@@ -93,12 +93,14 @@ Framewell can be also be used and developed locally! This means instead of uploa
 - Headover to `/client/src/utils/dataHandler.js` and use `const URL = process.env.REACT_APP_LOCAL_URL;`
 - Headover to `/server/controllers/userController.js` and use `const URL = process.env.LOCAL_URL;`
 - In `userController.js`file, use `registerArtefact()` and `deleteArtefact()` functions that are commented for local storage
-- Under `client` root, run the following command to start front-end
+- Under `client` root, run the following commands to start front-end
 ```bash
+  npm install
   npm start
 ```
-- Under `server` root, run the following command to start back-end
+- Under `server` root, run the following commands to start back-end
 ```bash
+  npm install
   npm start
 ```
 - Done, create a new account and go store some memories!
