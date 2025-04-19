@@ -107,8 +107,8 @@ function RecordForm() {
      */
     async function recordArtefact(e) {
       const sizeInKB = Number.parseInt(record.sizeImg.split(" ")[0]);
-      if (sizeInKB > 10 * 1024) {
-        // >10MB
+      if (sizeInKB > 15 * 1024) {
+        // >15MB
         setFeedback(feedbackMessages.tooBig);
         setSubmitActive(true);
         setToggleLoad(false);
