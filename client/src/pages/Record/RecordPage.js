@@ -29,6 +29,8 @@ import "./RecordPage.scss";
 const feedbackMessages = {
   initial: "",
   invalid: "The artefact must have a valid name and a picture uploaded",
+  tooBig:
+    "The image is too large (>10MB), please upload a smaller picture and try again",
   valid: "",
 };
 
@@ -49,8 +51,8 @@ function RecordForm() {
     );
 
   let [submitActive, setSubmitActive] = useState(true);
-  
-  // Initialize the loader  
+
+  // Initialize the loader
   const /** boolean */ [toggleLoad, setToggleLoad] = useState(false);
 
   // The JSON object that is being constantly updated and sent
@@ -74,7 +76,7 @@ function RecordForm() {
     artefactImg: "",
     typeImg: "",
     sizeImg: "",
-    nameImg: ""
+    nameImg: "",
   };
 
   // React hook to change the state of record
@@ -110,6 +112,12 @@ function RecordForm() {
           window.location.href = "/dashboard";
         })
         .catch((error) => {
+          if (error.response.status === 413) {
+            setFeedback(feedbackMessages.tooBig);
+            setSubmitActive(true);
+            setToggleLoad(false);
+            return;
+          }
           console.log(error);
         });
     }
@@ -123,15 +131,18 @@ function RecordForm() {
   function handleChange(event) {
     let name = event.target.name;
     let value = event.target.value;
-    console.log({name, value});
+    console.log({ name, value });
     setRecord({ ...record, [event.target.name]: event.target.value });
   }
 
   // Return an HTML of the Record Page
   return (
     <>
-      <div className="loader" style={{ display : toggleLoad ? 'block' : 'none' }}>
-        <ClipLoader className="loading" color="white" size={50}/>
+      <div
+        className="loader"
+        style={{ display: toggleLoad ? "block" : "none" }}
+      >
+        <ClipLoader className="loading" color="white" size={50} />
         <h3>Uploading your Artefact</h3>
       </div>
       <Navbar />
@@ -150,7 +161,7 @@ function RecordForm() {
 
           {/* This is the cancel button it just redirects to dashboard */}
           <p className="feedback">{feedback}</p>
-          <RecordButtons submitActive={submitActive}/>
+          <RecordButtons submitActive={submitActive} />
         </form>
       </div>
     </>

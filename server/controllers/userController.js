@@ -441,6 +441,12 @@ const registerArtefact = async (req, res) => {
  * @param {Response} res
  */ // (add / after * to uncomment the code below)
 const registerArtefact = async (req, res) => {
+  const imgSize = req.body.record.sizeImg.split(" ")[0];
+  if (imgSize > 10 * 1024) {
+    return res.status(413).send({
+      message: "Image size exceeds 10MB",
+    });
+  }
   const imageBuffer = Buffer.from(
     req.body.record.artefactImg.split(",")[1],
     "base64"
