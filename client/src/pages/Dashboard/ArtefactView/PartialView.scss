@@ -9,7 +9,7 @@
     align-items: center;
     flex-direction: row;
     padding: 16px;
-    margin-block-start: 1em;
+    margin-block-start: 2em;
     margin-block-end: 1em;
     left: 0;
     box-sizing: border-box;
@@ -176,9 +176,17 @@
             width: 90vw;
 
             img {
-                width: 45vw;
+                width: 100%;
                 object-fit: cover;
             }
+        }
+        .info-side{
+            margin-top: 5px;
+            padding: 10px;
+            width: 90vw;
+        }
+        .info-more {
+            margin-top: 10px;
         }
     }
 

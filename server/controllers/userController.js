@@ -15,7 +15,7 @@ const jwt = require("jsonwebtoken");
 const fs = require("fs");
 const mongoose = require("mongoose");
 const { put, del } = require("@vercel/blob"); /* Vercel Blob */
-const LIMIT = 16; // record limit per page
+const LIMIT = 8; // record limit per page
 
 /* Imports of mongoose models */
 const { User, Artefact, Category, Associated } = require("../models/user");
