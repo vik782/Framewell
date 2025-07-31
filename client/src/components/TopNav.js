@@ -36,17 +36,14 @@ function TopNav({ mobileNavOpen, openMobileNav }) {
     cookies.remove("TOKEN", { path: "/" });
 
     // user redirected to login page
-    window.location.href = "/";
+    window.location.replace("/login");
   }
 
   let /** React.Component */ DashboardButton = window.location.href.includes(
       "/dashboard"
     ) ? (
       <div className="topnav-button">
-        <button
-          className="dashboard"
-          onClick={() => window.location.reload()}
-        >
+        <button className="dashboard" onClick={() => window.location.reload()}>
           Dashboard
         </button>
       </div>
@@ -59,16 +56,16 @@ function TopNav({ mobileNavOpen, openMobileNav }) {
       "/dashboard"
     ) ? (
       <div className="website-logo">
-        <img 
-        src={logo} 
-        alt="Website logo" 
-        onClick={() => window.location.reload()}
+        <img
+          src={logo}
+          alt="Website logo"
+          onClick={() => window.location.reload()}
         />
       </div>
     ) : (
       /* else */ <Link className="website-logo" to={`/dashboard`}>
-          <img src={logo} alt="website logo" />
-        </Link>
+        <img src={logo} alt="website logo" />
+      </Link>
     );
 
   return (
